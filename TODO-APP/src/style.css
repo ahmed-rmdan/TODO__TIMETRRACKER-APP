@@ -46,6 +46,12 @@ form input{
   width: 85%;
   margin-left: 20px;
 }
+.submitbox{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+}
 form button{
   display: flex;
   width: 120px;
@@ -55,6 +61,5 @@ form button{
   justify-content: center;
   align-items: center;
   font-weight: bolder;
-  margin-left: 280px;
-  margin-top: 40px;
+ 
 }
