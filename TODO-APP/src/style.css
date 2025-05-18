@@ -63,3 +63,47 @@ form button{
   font-weight: bolder;
  
 }
+.slider{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  height: 500px;
+ 
+}
+.prev{
+  display: flex;
+  width:20%;
+justify-content: right;
+
+}
+.items{
+  display: flex;
+  width: 60%;
+  align-items: center;
+  height: 80%;
+  justify-content: space-between;
+}
+.card{
+  display: flex;
+height: 60%;
+width: 25%;
+background-color: #242424;
+border-radius: 50px;
+}
+.next{
+  display: flex;
+  width: 20%;
+}
+.prev button{
+  margin-right: 15%;
+  cursor: pointer;
+  border: none;
+  background-color: black;
+}
+.next button{
+  margin-left: 15%;
+  cursor: pointer;
+  border: none;
+  background-color: black;
+}
