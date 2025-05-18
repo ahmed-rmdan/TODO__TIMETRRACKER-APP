@@ -102,6 +102,9 @@ border-radius: 50px;
   cursor: pointer;
   border: none;
   background-color: black;
+   height: 20%;
+  width: 20%;
+    
 }
 .next button{
   margin-left: 15%;
@@ -114,4 +117,9 @@ border-radius: 50px;
 .next button img{
   width: 100%;
   height: 100%;
+}
+.prev button img{
+  width: 100%;
+  height: 100%;
+transform: rotate(180deg);
 }
