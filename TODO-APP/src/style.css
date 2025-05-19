@@ -102,8 +102,8 @@ border-radius: 50px;
   cursor: pointer;
   border: none;
   background-color: black;
-   height: 20%;
-  width: 20%;
+   height: 15%;
+  width: 15%;
     
 }
 .next button{
@@ -111,8 +111,8 @@ border-radius: 50px;
   cursor: pointer;
   border: none;
   background-color: black;
-  height: 20%;
-  width: 20%;
+  height: 15%;
+  width: 15%;
 }
 .next button img{
   width: 100%;
