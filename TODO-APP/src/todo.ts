@@ -1,5 +1,5 @@
 
-class todo{
+export class todo{
     id:string;
     task:string;
     date:Date;
