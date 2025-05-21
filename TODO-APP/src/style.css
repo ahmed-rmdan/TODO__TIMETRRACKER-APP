@@ -82,7 +82,7 @@ justify-content: right;
   width: 60%;
   align-items: center;
   height: 80%;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 .card{
   display: flex;

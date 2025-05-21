@@ -1,6 +1,7 @@
 import './style.css'
 import { todo } from './todo'
 import { modalview ,modal} from './modal'
+import { Viewtasks } from './viewtasks'
 const submitbutton=document.querySelector<HTMLButtonElement>('.submit')
 const taskvalue=document.querySelector<HTMLInputElement>('.task')
 const timevalue=document.querySelector<HTMLInputElement>('.time')
@@ -15,13 +16,13 @@ if(taskvalue?.value===''||timevalue===undefined||datevalue===undefined){
 else{
  const setdate=new todo(taskvalue?.value as string,datevalue?.valueAsDate as Date,timevalue?.value as string)
         modalview.pushtask(setdate)
-        console.log(datevalue?.valueAsDate?.getFullYear())
-        
+        modalview.updatepagemodal()
+        const viewtasks=new Viewtasks(modal.todos)
+        viewtasks.render()
+      
        
 }
-       
-   
-         
-
+               
 })
+
 
