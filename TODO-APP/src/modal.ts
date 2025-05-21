@@ -47,6 +47,7 @@ export const modalview={
     pushtask,
     removetask,
     updatepagemodal,
-    handlenext
+    handlenext,
+    handleprev
 
 }

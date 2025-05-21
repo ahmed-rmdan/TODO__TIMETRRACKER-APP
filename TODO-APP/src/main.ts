@@ -18,9 +18,7 @@ else{
         modalview.pushtask(setdate)
         modalview.updatepagemodal()
         const viewtasks=new Viewtasks(modal.todos)
-        viewtasks.render()
-      
-       
+        viewtasks.render()      
 }
                
 })
