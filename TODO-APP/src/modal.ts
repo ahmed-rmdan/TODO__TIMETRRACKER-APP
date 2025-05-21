@@ -10,7 +10,13 @@ page:1
 function pushtask(todo:todo){
     modal.todos.push(todo)
     modal.length++;
-    modal.page=Number((modal.length/3).toFixed())
+    if(modal.length===0){
+        modal.page=1
+    }
+    else{
+modal.page=Number((modal.length/3).toFixed())
+    }
+    
 }
 function removetask(id:string){
 modal.todos.filter(to=>
