@@ -2,25 +2,29 @@ import './style.css'
 import { todo } from './todo'
 import { modalview ,modal} from './modal'
 import { Viewtasks } from './viewtasks'
+import { Viewtaps } from './viewtaps'
 const submitbutton=document.querySelector<HTMLButtonElement>('.submit')
 const taskvalue=document.querySelector<HTMLInputElement>('.task')
 const timevalue=document.querySelector<HTMLInputElement>('.time')
 const datevalue=document.querySelector<HTMLInputElement>('.date')
 const nextbutton=document.querySelector<HTMLButtonElement>('.next button')
 const prevbutton=document.querySelector<HTMLButtonElement>('.prev button')
-
+console.log(timevalue?.value)
 
 submitbutton?.addEventListener('click',ev=>{
     ev.preventDefault();
 
-if(taskvalue?.value===''||timevalue===undefined||datevalue===undefined){
+if(taskvalue?.value===''||taskvalue?.value===''||datevalue?.value===''){
+    console.log(taskvalue)
     return;
 }
 else{
  const setdate=new todo(taskvalue?.value as string,datevalue?.valueAsDate as Date,timevalue?.value as string)
         modalview.pushtask(setdate)
         const viewtasks=new Viewtasks(modal.pagetodo)
-        viewtasks.render()      
+        viewtasks.render() 
+        const viewtaps=new Viewtaps(modal.maxpages,modal.activepage) 
+        viewtaps.render()    
 }
                
 })
@@ -30,6 +34,8 @@ nextbutton?.addEventListener('click',ev=>{
    modalview.handlenext()
    const viewtasks=new Viewtasks(modal.pagetodo)
    viewtasks.render()
+   const viewtaps=new Viewtaps(modal.maxpages,modal.activepage) 
+        viewtaps.render()    
 })
 
 
@@ -38,6 +44,6 @@ prevbutton?.addEventListener('click',ev=>{
    modalview.handleprev()
    const viewtasks=new Viewtasks(modal.pagetodo)
    viewtasks.render()
+   const viewtaps=new Viewtaps(modal.maxpages,modal.activepage) 
+        viewtaps.render()    
 })
-const x=[1,2,3,4,5,6]
-console.log(x.splice(0))
