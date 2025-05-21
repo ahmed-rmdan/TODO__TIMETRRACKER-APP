@@ -15,7 +15,7 @@ if(taskvalue?.value===''||timevalue===undefined||datevalue===undefined){
 else{
  const setdate=new todo(taskvalue?.value as string,datevalue?.valueAsDate as Date,timevalue?.value as string)
         modalview.pushtask(setdate)
-        console.log(modal.todos)
+        console.log(datevalue?.valueAsDate?.getFullYear())
         
        
 }
