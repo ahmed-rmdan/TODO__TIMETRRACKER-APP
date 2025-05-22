@@ -10,22 +10,14 @@ const datevalue=document.querySelector<HTMLInputElement>('.date')
 const nextbutton=document.querySelector<HTMLButtonElement>('.next button')
 const prevbutton=document.querySelector<HTMLButtonElement>('.prev button')
 
- modalview.getitems()
+handleloadapp();
 
-
-if(modal.todos.length!==0){
-    console.log(modal.todos)
- const viewfirsttasks=new Viewtasks(modal.pagetodo)
-viewfirsttasks.render()
-const viewtaps=new Viewtaps(modal.maxpages,modal.activepage) 
-        viewtaps.render() 
-}
 
 
 
 submitbutton?.addEventListener('click',ev=>{
     ev.preventDefault();
-if(taskvalue?.value===''||taskvalue?.value===''||datevalue?.value===''){
+if(taskvalue?.value===''||timevalue?.value===''||datevalue?.value===''){
     
     return;
 }
@@ -37,6 +29,7 @@ else{
         const viewtaps=new Viewtaps(modal.maxpages,modal.activepage) 
         viewtaps.render() 
         modalview.setitems(modal.todos)   
+      
 }
                
 })
@@ -47,7 +40,8 @@ nextbutton?.addEventListener('click',ev=>{
    const viewtasks=new Viewtasks(modal.pagetodo)
    viewtasks.render()
    const viewtaps=new Viewtaps(modal.maxpages,modal.activepage) 
-        viewtaps.render()    
+        viewtaps.render()   
+     
 })
 
 
@@ -57,5 +51,46 @@ prevbutton?.addEventListener('click',ev=>{
    const viewtasks=new Viewtasks(modal.pagetodo)
    viewtasks.render()
    const viewtaps=new Viewtaps(modal.maxpages,modal.activepage) 
-        viewtaps.render()    
+        viewtaps.render()   
+   
 })
+
+
+function handleloadapp(){
+   
+ modalview.getitems()
+ 
+
+const viewtaps=new Viewtaps(modal.maxpages,modal.activepage) 
+        viewtaps.render() 
+
+if(modal.todos.length!==0){
+    console.log(modal.todos)
+ const viewfirsttasks=new Viewtasks(modal.pagetodo)
+viewfirsttasks.render()
+const viewtaps=new Viewtaps(modal.maxpages,modal.activepage) 
+        viewtaps.render() 
+        
+}
+}
+
+export function handleremove(){
+const xbuttun=document.querySelectorAll<HTMLButtonElement>('.exit button')
+
+xbuttun?.forEach(elm=>{
+    elm.addEventListener('click',ev=>{
+    const indexnumber=elm.dataset.set
+       
+       modalview.removetask(Number(indexnumber))
+    
+       const viewtasks=new Viewtasks(modal.pagetodo)
+   viewtasks.render()
+    const viewtaps=new Viewtaps(modal.maxpages,modal.activepage) 
+        viewtaps.render() 
+        modalview.setitems(modal.todos) 
+
+    })
+})
+
+}
+

@@ -9,17 +9,33 @@ pagetodo:[]
 }
 function pushtask(todo:todo){
     modal.todos.push(todo)
-    modal.length++;  
+    modal.length=modal.length+1;  
    modal.maxpages=Math.ceil(modal.length/3) 
   updatepushitems()
 
 }
-function removetask(id:string){
-modal.todos.filter(to=>
-    to.id!==id
-)
- length--;   
+function removetask(index:number){
+    const dividednumber=modal.todos.length%3 
+    
+let newtodos=[...modal.todos]  
 
+newtodos.splice(index,1)
+
+
+modal.todos=[...newtodos]
+
+modal.length=modal.length-1;
+modal.maxpages=Math.ceil(modal.length/3)
+console.log(dividednumber)
+console.log(modal.activepage)
+console.log(modal.maxpages)
+const checkpage=modal.activepage-1
+if(checkpage===modal.maxpages&&dividednumber==1&&modal.activepage>1){
+modal.activepage=modal.activepage-1
+console.log('aaaaa')
+}
+
+updateremoveitems()
 
 }
 
@@ -34,7 +50,7 @@ if(modal.activepage<modal.maxpages){
     
 }
 function handleprev(){
-    console.log(modal.activepage)
+   
 if(modal.activepage===1){
     return;
 }else{
@@ -47,7 +63,7 @@ function updatepushitems(){
     if(modal.activepage===modal.maxpages){
       let  newtodos=[...modal.todos]
       const start=(modal.activepage-1)*3
-      const end=modal.length
+      const end=start+3
       
      modal.pagetodo=newtodos.slice(start,end)
       }
@@ -64,15 +80,15 @@ function updatenextitems(){
 }
 function updateprevitems(){
       let  newtodos=[...modal.todos]
-      console.log(newtodos)
+     
      
     const end=modal.activepage*3
     const start=end-3
-     console.log(start)
-      console.log(end)
+   
     modal.pagetodo=newtodos.slice(start,end)
 }
 function setitems(items:todo[]){
+  
     localStorage.setItem('items',JSON.stringify(items))
     localStorage.setItem('modal',JSON.stringify({length:modal.length,maxpages:modal.maxpages}))
     
@@ -81,20 +97,30 @@ function getitems(){
     
     const items:todo[] =[...JSON.parse(localStorage.getItem('items')as string)]
     items.forEach(item=>{
-        console.log(item.date)
+        
         item.date=new Date(item.date)
     })
      modal.todos=[...items]
-     console.log(JSON.parse(localStorage.getItem('modal') as string))
-       const modaldata:{length:number,maxpages:number}=JSON.parse(localStorage.getItem('modal') as string)
-       console.log(modaldata)
-       modal.length=modaldata.length
-       modal.maxpages=modaldata.maxpages
+    //  console.log(JSON.parse(localStorage.getItem('modal') as string))
+    //    const modaldata:{length:number,maxpages:number}=JSON.parse(localStorage.getItem('modal') as string)
+    //    console.log(modaldata)
+       modal.length=modal.todos.length
+    
+modal.maxpages=Math.ceil(modal.todos.length/3)
+       
+       
        updateopenitems()
 }
 function updateopenitems(){
     let newtodos=[...modal.todos]
     modal.pagetodo=newtodos.slice(0,3)
+}
+function updateremoveitems(){
+    const start=(modal.activepage-1)*3
+    const end=start+3
+    let newtodos=[...modal.todos]
+    
+    modal.pagetodo=newtodos.slice(start,end)
 }
 export const modalview={
     pushtask,

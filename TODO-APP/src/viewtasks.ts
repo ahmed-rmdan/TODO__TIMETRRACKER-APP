@@ -1,6 +1,6 @@
 import { todo } from "./todo";
 const items=document.querySelector<HTMLDivElement>('.items')
-
+import { handleremove } from "./main";
 export class Viewtasks{
 
 tasks:todo[];
@@ -17,7 +17,7 @@ render(){
     let hours:number;
     let minutes:number
     let currdate=new Date()
-    let html=this.tasks.map(task=>{
+    let html=this.tasks.map((task,index)=>{
         year=task.date.getFullYear()-currdate.getFullYear()
         months=task.date.getMonth()-currdate.getMonth()
         days=task.date.getDate()-currdate.getDate()
@@ -25,7 +25,7 @@ render(){
         minutes=task.date.getMinutes()-currdate.getMinutes()
     return `<div class="card">
                 <div class="exit">
-                      <button class="x">
+                      <button class="x" data-set=${index}>
                         x
                       </button>
 
@@ -49,6 +49,7 @@ render(){
     }   
     ).join()
     items!.innerHTML=html
+    handleremove()
 }
 
 
