@@ -10,7 +10,7 @@ this.activepage=activepage
 }
 render(){
     let html:string=``;
-    console.log(this.numtaps)
+    
     for(let i=1;i<=this.numtaps;i++){
         if(i===this.activepage){
            html=html+`<div class="tap-container">
@@ -31,7 +31,7 @@ render(){
        
        
     }
-     console.log(html)
+    
     taps!.innerHTML=html
 }
 

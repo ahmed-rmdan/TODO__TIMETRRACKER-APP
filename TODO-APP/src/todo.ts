@@ -16,6 +16,7 @@ export class todo{
     const minutes:number=Number(this.time.split(':')[1])
     this.date.setHours(hours)
     this.date.setMinutes(minutes)
+   
     }
 
 }

@@ -9,13 +9,24 @@ const timevalue=document.querySelector<HTMLInputElement>('.time')
 const datevalue=document.querySelector<HTMLInputElement>('.date')
 const nextbutton=document.querySelector<HTMLButtonElement>('.next button')
 const prevbutton=document.querySelector<HTMLButtonElement>('.prev button')
-console.log(timevalue?.value)
+
+ modalview.getitems()
+
+
+if(modal.todos.length!==0){
+    console.log(modal.todos)
+ const viewfirsttasks=new Viewtasks(modal.pagetodo)
+viewfirsttasks.render()
+const viewtaps=new Viewtaps(modal.maxpages,modal.activepage) 
+        viewtaps.render() 
+}
+
+
 
 submitbutton?.addEventListener('click',ev=>{
     ev.preventDefault();
-
 if(taskvalue?.value===''||taskvalue?.value===''||datevalue?.value===''){
-    console.log(taskvalue)
+    
     return;
 }
 else{
@@ -24,7 +35,8 @@ else{
         const viewtasks=new Viewtasks(modal.pagetodo)
         viewtasks.render() 
         const viewtaps=new Viewtaps(modal.maxpages,modal.activepage) 
-        viewtaps.render()    
+        viewtaps.render() 
+        modalview.setitems(modal.todos)   
 }
                
 })

@@ -1,10 +1,8 @@
 import { todo } from "./todo"
 
-export const modal:{todos:todo[],length:number,start:number,end:number,maxpages:number,activepage:number,pagetodo:todo[]}={
+export const modal:{todos:todo[],length:number,maxpages:number,activepage:number,pagetodo:todo[]}={
 todos:[],
 length:0,
-start:0,
-end:3,
 maxpages:1,
 activepage:1,
 pagetodo:[]
@@ -74,11 +72,36 @@ function updateprevitems(){
       console.log(end)
     modal.pagetodo=newtodos.slice(start,end)
 }
-
+function setitems(items:todo[]){
+    localStorage.setItem('items',JSON.stringify(items))
+    localStorage.setItem('modal',JSON.stringify({length:modal.length,maxpages:modal.maxpages}))
+    
+}
+function getitems(){
+    
+    const items:todo[] =[...JSON.parse(localStorage.getItem('items')as string)]
+    items.forEach(item=>{
+        console.log(item.date)
+        item.date=new Date(item.date)
+    })
+     modal.todos=[...items]
+     console.log(JSON.parse(localStorage.getItem('modal') as string))
+       const modaldata:{length:number,maxpages:number}=JSON.parse(localStorage.getItem('modal') as string)
+       console.log(modaldata)
+       modal.length=modaldata.length
+       modal.maxpages=modaldata.maxpages
+       updateopenitems()
+}
+function updateopenitems(){
+    let newtodos=[...modal.todos]
+    modal.pagetodo=newtodos.slice(0,3)
+}
 export const modalview={
     pushtask,
     removetask,
     handlenext,
-    handleprev
+    handleprev,
+    setitems,
+    getitems
 
 }
