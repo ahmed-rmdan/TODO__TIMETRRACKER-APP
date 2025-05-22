@@ -16,6 +16,7 @@ render(){
     let days:number;
     let hours:number;
     let minutes:number
+    let seconds:number;
     let currdate=new Date()
     let html=this.tasks.map((task,index)=>{
         year=task.date.getFullYear()-currdate.getFullYear()
@@ -23,6 +24,7 @@ render(){
         days=task.date.getDate()-currdate.getDate()
         hours=task.date.getHours()-currdate.getHours()
         minutes=task.date.getMinutes()-currdate.getMinutes()
+       seconds=task.date.getSeconds()-currdate.getSeconds()
     return `<div class="card">
                 <div class="exit">
                       <button class="x" data-set=${index}>
@@ -43,7 +45,7 @@ render(){
                 </div>
                 <div class="remaining">
                        
-                         <p>  ${year<0?'0':year} Y :  ${months<0?'0':months} M :  ${days<0?'0':days} D : ${Math.abs(hours)} h : ${Math.abs(minutes)} m  </p>
+                         <p>  ${year<0?'0':year} Y :  ${months<0?'0':months} M :  ${days<0?'0':days} D : ${Math.abs(hours)} h : ${Math.abs(minutes)} m : ${Math.abs(seconds)} s  </p>
                 </div>
           </div>`
     }   

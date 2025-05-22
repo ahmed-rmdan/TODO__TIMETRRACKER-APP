@@ -17,12 +17,22 @@ handleloadapp();
 
 submitbutton?.addEventListener('click',ev=>{
     ev.preventDefault();
-if(taskvalue?.value===''||timevalue?.value===''||datevalue?.value===''){
-    
+    if(taskvalue?.value===''||timevalue?.value===''||datevalue?.value==='' ||datevalue?.valueAsDate===null ||datevalue?.valueAsDate===undefined){
+
     return;
 }
+    const nowdate=new Date()
+    const taskdate=datevalue?.valueAsDate
+    const hours:number= Number(timevalue?.value.split(':')[0])
+    const minutes:number=Number(timevalue?.value.split(':')[1])
+    taskdate?.setHours(hours)
+    taskdate?.setMinutes(minutes)
+
+if(taskdate< nowdate ){
+    return
+}
 else{
- const setdate=new todo(taskvalue?.value as string,datevalue?.valueAsDate as Date,timevalue?.value as string)
+ const setdate=new todo(taskvalue?.value as string,taskdate,timevalue?.value as string)
         modalview.pushtask(setdate)
         const viewtasks=new Viewtasks(modal.pagetodo)
         viewtasks.render() 
@@ -35,23 +45,33 @@ else{
 })
 
 nextbutton?.addEventListener('click',ev=>{
-    ev.preventDefault()
+if(modal.activepage===modal.maxpages){
+    return
+}else{
+   ev.preventDefault()
    modalview.handlenext()
    const viewtasks=new Viewtasks(modal.pagetodo)
    viewtasks.render()
    const viewtaps=new Viewtaps(modal.maxpages,modal.activepage) 
-        viewtaps.render()   
+        viewtaps.render()  
+}
+  
      
 })
 
 
 prevbutton?.addEventListener('click',ev=>{
     ev.preventDefault()
-   modalview.handleprev()
+    if(modal.activepage==1){
+ modalview.handleprev()
    const viewtasks=new Viewtasks(modal.pagetodo)
    viewtasks.render()
    const viewtaps=new Viewtaps(modal.maxpages,modal.activepage) 
-        viewtaps.render()   
+        viewtaps.render()  
+    }else{
+        return
+    }
+   
    
 })
 
@@ -93,4 +113,9 @@ xbuttun?.forEach(elm=>{
 })
 
 }
+setInterval(function(){
+   const viewtasks=new Viewtasks(modal.pagetodo)
+   viewtasks.render()
+   console.log('aaaa')
+},1000)
 

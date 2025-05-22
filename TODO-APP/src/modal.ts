@@ -90,7 +90,6 @@ function updateprevitems(){
 function setitems(items:todo[]){
   
     localStorage.setItem('items',JSON.stringify(items))
-    localStorage.setItem('modal',JSON.stringify({length:modal.length,maxpages:modal.maxpages}))
     
 }
 function getitems(){
@@ -101,9 +100,7 @@ function getitems(){
         item.date=new Date(item.date)
     })
      modal.todos=[...items]
-    //  console.log(JSON.parse(localStorage.getItem('modal') as string))
-    //    const modaldata:{length:number,maxpages:number}=JSON.parse(localStorage.getItem('modal') as string)
-    //    console.log(modaldata)
+
        modal.length=modal.todos.length
     
 modal.maxpages=Math.ceil(modal.todos.length/3)
