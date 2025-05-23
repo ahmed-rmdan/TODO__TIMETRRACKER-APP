@@ -12,9 +12,6 @@ const prevbutton=document.querySelector<HTMLButtonElement>('.prev button')
 
 handleloadapp();
 
-
-
-
 submitbutton?.addEventListener('click',ev=>{
     ev.preventDefault();
     if(taskvalue?.value===''||timevalue?.value===''||datevalue?.value==='' ||datevalue?.valueAsDate===null ||datevalue?.valueAsDate===undefined){
