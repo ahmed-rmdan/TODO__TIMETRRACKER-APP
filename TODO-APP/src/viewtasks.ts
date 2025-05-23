@@ -11,8 +11,7 @@ this.tasks=tasks
 }
 
 render(){
-    let year:number;
-    let months:number;
+   
     let days:number;
     let hours:number;
     let minutes:number
@@ -20,11 +19,6 @@ render(){
     let currdate=new Date()
     let html=this.tasks.map((task,index)=>{
    
-        year=task.date.getFullYear()-currdate.getFullYear()
-        months=(task.date.getMonth()-currdate.getMonth())-1
-       if (months<0){
-        months=0
-       }
       let difftime=task.date.getTime()-currdate.getTime()
       seconds=Math.floor(difftime/1000)%60
       minutes=Math.floor(difftime/(1000*60))%60
@@ -52,7 +46,7 @@ render(){
                 </div>
                 <div class="remaining">
                        
-                         <p>  ${year<0?'0':year} Y :  ${months<0?'0':months} M :  ${days} D : ${hours} h : ${minutes} m : ${seconds} s </p>
+                         <p>   ${days} D : ${hours} H : ${minutes} M : ${seconds} S </p>
                 </div>
           </div>`
     }   
