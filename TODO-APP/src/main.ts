@@ -32,7 +32,7 @@ if(taskdate< nowdate ){
     return
 }
 else{
- const setdate=new todo(taskvalue?.value as string,taskdate,timevalue?.value as string)
+ const setdate=new todo(taskvalue?.value as string,taskdate)
         modalview.pushtask(setdate)
         const viewtasks=new Viewtasks(modal.pagetodo)
         viewtasks.render() 
@@ -116,6 +116,5 @@ xbuttun?.forEach(elm=>{
 setInterval(function(){
    const viewtasks=new Viewtasks(modal.pagetodo)
    viewtasks.render()
-   console.log('aaaa')
 },1000)
 

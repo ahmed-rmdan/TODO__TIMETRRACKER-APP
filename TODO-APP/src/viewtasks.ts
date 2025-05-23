@@ -19,12 +19,19 @@ render(){
     let seconds:number;
     let currdate=new Date()
     let html=this.tasks.map((task,index)=>{
+   
         year=task.date.getFullYear()-currdate.getFullYear()
-        months=task.date.getMonth()-currdate.getMonth()
-        days=task.date.getDate()-currdate.getDate()
-        hours=task.date.getHours()-currdate.getHours()
-        minutes=task.date.getMinutes()-currdate.getMinutes()
-       seconds=task.date.getSeconds()-currdate.getSeconds()
+        months=(task.date.getMonth()-currdate.getMonth())-1
+       if (months<0){
+        months=0
+       }
+      let difftime=task.date.getTime()-currdate.getTime()
+      seconds=Math.floor(difftime/1000)%60
+      minutes=Math.floor(difftime/(1000*60))%60
+      hours=Math.floor(difftime/(1000*60*60))%60
+      days=Math.floor(difftime/(1000*60*60*24))
+     console.log(seconds)
+      
     return `<div class="card">
                 <div class="exit">
                       <button class="x" data-set=${index}>
@@ -45,11 +52,11 @@ render(){
                 </div>
                 <div class="remaining">
                        
-                         <p>  ${year<0?'0':year} Y :  ${months<0?'0':months} M :  ${days<0?'0':days} D : ${Math.abs(hours)} h : ${Math.abs(minutes)} m : ${Math.abs(seconds)} s  </p>
+                         <p>  ${year<0?'0':year} Y :  ${months<0?'0':months} M :  ${days} D : ${hours} h : ${minutes} m : ${seconds} s </p>
                 </div>
           </div>`
     }   
-    ).join()
+    ).join('')
     items!.innerHTML=html
     handleremove()
 }
