@@ -1,4 +1,4 @@
-import { todo } from "./todo"
+import { todo } from "../todo"
 
 export const modal:{todos:todo[],length:number,maxpages:number,activepage:number,pagetodo:todo[]}={
 todos:[],
@@ -81,8 +81,8 @@ function updatenextitems(){
 function updateprevitems(){
       let  newtodos=[...modal.todos]
      
-     
-    const end=modal.activepage*3
+     console.log(modal.activepage)
+    const end=(modal.activepage)*3
     const start=end-3
    
     modal.pagetodo=newtodos.slice(start,end)

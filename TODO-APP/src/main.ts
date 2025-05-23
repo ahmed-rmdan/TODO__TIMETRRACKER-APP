@@ -1,8 +1,8 @@
 import './style.css'
 import { todo } from './todo'
-import { modalview ,modal} from './modal'
-import { Viewtasks } from './viewtasks'
-import { Viewtaps } from './viewtaps'
+import { modalview ,modal} from './modal/modal'
+import { Viewtasks } from './view/viewtasks'
+import { Viewtaps } from './view/viewtaps'
 const submitbutton=document.querySelector<HTMLButtonElement>('.submit')
 const taskvalue=document.querySelector<HTMLInputElement>('.task')
 const timevalue=document.querySelector<HTMLInputElement>('.time')
@@ -62,7 +62,8 @@ if(modal.activepage===modal.maxpages){
 
 prevbutton?.addEventListener('click',ev=>{
     ev.preventDefault()
-    if(modal.activepage==1){
+    console.log(modal.activepage)
+    if(modal.activepage!==1){
  modalview.handleprev()
    const viewtasks=new Viewtasks(modal.pagetodo)
    viewtasks.render()

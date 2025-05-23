@@ -1,6 +1,6 @@
-import { todo } from "./todo";
+import { todo } from "../todo";
 const items=document.querySelector<HTMLDivElement>('.items')
-import { handleremove } from "./main";
+import { handleremove } from "../main";
 export class Viewtasks{
 
 tasks:todo[];
@@ -24,7 +24,7 @@ render(){
       minutes=Math.floor(difftime/(1000*60))%60
       hours=Math.floor(difftime/(1000*60*60))%60
       days=Math.floor(difftime/(1000*60*60*24))
-     console.log(seconds)
+     
       
     return `<div class="card">
                 <div class="exit">
