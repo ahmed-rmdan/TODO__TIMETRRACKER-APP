@@ -8,18 +8,72 @@
   </head>
   <body>
     <header>
-      TODO-LIST
+      TODO-APP 
     </header>
    
    <form>
     <p>Your task</p>
-    <input type="text" maxlength="25">
+    <input minlength="1" type="text" maxlength="25" class="task">
     <p> Enter Date</p>
-    <input type="date">
+    <input type="date"  class="date">
     <p>Enter Time</p>
-     <input type="time">
-     <button type="submit"> Submit</button>
+     <input type="time" class="time">
+     <div class="submitbox">
+      <button type="submit" class="submit"> Submit</button>
+     </div>
    </form>
+   <div class="slider">
+       <div class="prev"> 
+           <button >
+             <img src="icons/next-button-svgrepo-com.svg">
+           </button> 
+       </div>
+       <div class="items">
+          <!-- <div class="card">
+                <div class="exit">
+                      <button class="x">
+                        x
+                      </button>
+
+                </div>
+                <div class="task">
+                  doing fine
+                </div>
+                <div class="taskdate">
+                        <div class="date">
+                             25/4/2026
+                        </div>
+                        <div class="time">
+                                13:10
+                        </div>
+                </div>
+                <div class="remaining">
+                       
+                         <p>  1 Y :  2 M :  7 D : 50 h : 70 m  </p>
+                </div>
+          </div> -->
+            
+                  
+          
+       </div>
+       <div class="next">
+           <button>
+             <img src="icons/next-button-svgrepo-com.svg">
+             
+          </button>
+
+       </div>
+   </div>
+   <div class="taps">
+        <!-- <div class="tap-container">
+             <button class="tap-fill">
+           
+             </button>
+
+        </div> -->
+        
+
+   </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

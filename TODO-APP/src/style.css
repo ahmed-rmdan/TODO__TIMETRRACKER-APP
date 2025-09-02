@@ -14,22 +14,23 @@
 }
 body{
   display: flex;
- 
+   font-size: 1px;
   flex-direction: column;
   align-items: center;
+
 }
 header{
   display: flex;
   color: white;
   justify-content: center;
-  height: 300px;
+  height: 250px;
   align-items: center;
-  font-size: 80px;
+  font-size: 80em;
 }
 form{
   display: flex;
   justify-content: start;
-
+  font-size: 1em;
   flex-direction: column;
   width: 35%;
   background-color:#242424 ;
@@ -37,24 +38,296 @@ form{
   height: 400px;
 }
 form p{
-  font-size: 20px;
+  font-size: 25em;
   margin-left: 20px;
   height: 20px;
 }
 form input{
-  height: 25px;
+  height: 2.5em;
   width: 85%;
   margin-left: 20px;
 }
+.submitbox{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+}
 form button{
   display: flex;
-  width: 120px;
-  height: 45px;
+  width: 6em;
+  height: 2em;
   border-radius: 25px;
   font-size: x-large;
   justify-content: center;
   align-items: center;
   font-weight: bolder;
-  margin-left: 260px;
-  margin-top: 40px;
+ font-size: 27em;
+}
+.slider{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  height: 500px;
+ 
+}
+.prev{
+  display: flex;
+  width:20%;
+justify-content: right;
+
+}
+.items{
+  display: flex;
+  width: 60%;
+  align-items: center;
+  height: 80%;
+  justify-content: space-evenly;
+}
+.card{
+  display: flex;
+height: 70%;
+width: 30%;
+font-size: 1em;
+background-color: #242424;
+border-radius: 25px;
+flex-direction: column;
+font-size: 30em;
+}
+.exit{
+  display: flex;
+  justify-content: end;
+  height: 20%;
+  width: 100%;
+}
+.exit button{
+  margin-right: 11%;
+  border: none;
+  background-color: #242424;
+  font-size: xx-large;
+  cursor: pointer;
+}
+.card .task{
+  display: flex;
+  height: 25%;
+  justify-content: center;
+  font-weight: bolder;
+  width: 100%;
+  align-items: center;
+
+}
+.card .task p{
+  font-size: 1em;
+  text-align: center;
+    white-space: normal;   
+  word-wrap: break-word;
+  width: 100%;
+}
+
+
+.taskdate{
+  display: flex;
+  justify-content: space-around;
+  height:30%;
+  font-size: x-large;
+  align-items: center;
+font-size: 0.9em;
+}
+.remaining{
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+}
+.remaining p{
+ margin-top: -3px;
+  display: flex;
+  justify-content: center;
+    height: 100%;
+  width: 100%;
+  font-size: x-large;
+  color: red;
+  font-size: 0.8em;
+  text-align: center;
+}
+.next{
+  display: flex;
+  width: 20%;
+  height: 100%;
+  align-items: center;
+}
+.prev button{
+  margin-right: 15%;
+  cursor: pointer;
+  border: none;
+  background-color: black;
+   height: 15%;
+  width: 15%;
+    
+}
+.next button{
+  margin-left: 15%;
+  cursor: pointer;
+  border: none;
+  background-color: black;
+  height: 15%;
+  width: 15%;
+}
+.next button img{
+  width: 100%;
+  height: 100%;
+}
+.prev button img{
+  width: 100%;
+  height: 100%;
+transform: rotate(180deg);
+}
+.taps{
+  margin-top: -70px;
+  display: flex;
+flex-direction: row;
+  justify-content: center;
+  align-items: center;
+ width: 50%;
+ height: 50px;
+ gap: 15px;
+}
+.tap{
+  border-radius: 50%;
+width: 2em;
+height: 2em;
+background-color: black;
+border: 1px solid white;
+
+}
+.tap-container{
+  height: 100%;
+  width: 1fr;
+}
+.tap-fill{
+    border-radius: 50%;
+width: 2em;
+height: 2em;
+background-color: white;
+border: 1px solid white;
+}
+
+@media only screen and (max-width: 1440px) {
+  body {
+    font-size: 0.85px;
+  }
+  form input{
+  height: 2em;
+
+}
+.next button{
+  width: 18%;
+}
+.prev button{
+  width: 18%;
+}
+  
+}
+
+@media only screen and (max-width: 1024px) {
+  body {
+    font-size: 0.6px;
+  }
+  .card{
+    height: 60%;
+  }
+  .next button{
+  width: 20%;
+}
+.prev button{
+  width: 20%;
+}
+}
+
+@media only screen and (max-width: 768px) {
+  header{
+  height: 200px;
+  }
+  form{
+   height: 350px;
+  }
+  .slider{
+    height: 400px;
+  }
+  .card{
+    height: 60%;
+    font-size: 23em;
+  }
+  .next button{
+  width: 27%;
+}
+.prev button{
+  width: 27%;
+}
+.tap{
+  height: 1.7em;
+  width: 1.7em;
+
+}
+.tap-fill{
+  height: 1.7em;
+  width: 1.7em;
+}
+}
+
+
+@media only screen and (max-width: 425px) {
+  header{
+  height: 200px;
+  }
+  form{
+   height: 350px;
+   width: 90%;
+  }
+  .slider{
+    height: 500px;
+   
+  }
+  .items{
+   min-width: 85%;
+  }
+  .card{
+    height: 60%;
+    font-size: 23em;
+    height: 55%;
+    border-radius: 15px;
+  }
+  .remaining p{
+    font-size: 0.60em;
+  }
+  .next button{
+    
+  width: 100%;
+  height: 30%; 
+}
+.next button img{
+  width: 250%;
+margin-left: -10px;
+  
+}
+.prev button{
+  width: 100%;
+}
+.prev button img{
+  width: 250%;
+ margin-left: -10px;
+  
+}
+.tap{
+  height: 1.2em;
+  width: 1.2em;
+
+}
+.tap-fill{
+  height: 1.2em;
+  width: 1.2em;
+}
 }

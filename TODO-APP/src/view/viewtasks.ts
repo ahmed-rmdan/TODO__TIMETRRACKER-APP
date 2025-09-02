@@ -1,0 +1,60 @@
+import { todo } from "../todo";
+const items=document.querySelector<HTMLDivElement>('.items')
+import { handleremove } from "../main";
+export class Viewtasks{
+
+tasks:todo[];
+
+
+constructor(tasks:todo[]){
+this.tasks=tasks
+}
+
+render(){
+   
+    let days:number;
+    let hours:number;
+    let minutes:number
+    let seconds:number;
+    let currdate=new Date()
+    let html=this.tasks.map((task,index)=>{
+   
+      let difftime=task.date.getTime()-currdate.getTime()
+      seconds=Math.floor(difftime/1000)%60
+      minutes=Math.floor(difftime/(1000*60))%60
+      hours=Math.floor(difftime/(1000*60*60))%60
+      days=Math.floor(difftime/(1000*60*60*24))
+     
+      
+    return `<div class="card">
+                <div class="exit">
+                      <button class="x" data-set=${index}>
+                        x
+                      </button>
+
+                </div>
+                <div class="task">
+                  <p> ${task.task}  </p>     
+                </div>
+                <div class="taskdate">
+                        <div class="date">
+                             ${task.date.getDate()}/${task.date.getMonth()+1}/${task.date.getFullYear()}
+                        </div>
+                        <div class="time">
+                                ${task.date.getHours()}:${task.date.getMinutes()}
+                        </div>
+                </div>
+                <div class="remaining">
+                       
+                         <p>   ${days} D : ${hours} H : ${minutes} M : ${seconds} S </p>
+                </div>
+          </div>`
+    }   
+    ).join('')
+    items!.innerHTML=html
+    handleremove()
+}
+
+
+
+}
